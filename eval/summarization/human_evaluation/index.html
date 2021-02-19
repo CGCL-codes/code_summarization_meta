@@ -1,0 +1,283 @@
+<!--
+Reference:
+1. prismjs for code rending, https://prismjs.com/
+2. star rating: http://nashio.github.io/star-rating-svg/demo/
+ -->
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>jQuery StarRating: Star Rating Plugin Demo</title>
+<!-- <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css"> -->
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="jquery.star-rating-svg.js"></script>
+<link rel="stylesheet" type="text/css" href="star-rating-svg.css">
+
+<script src="./prism.js"></script>
+<link rel="stylesheet" href="./prism.css">
+
+<style>
+/* body { background-color:#222;} */
+.container { margin:50px auto; max-width:728px;}
+.container ul {
+  list-style: none;
+  padding: 0px;
+  width: 200px;
+  float: left;
+  height:46px;
+}
+
+.container li {
+  display: inline-block;
+  font-size: 40px;
+  color: #ccc;
+  cursor: pointer;
+  padding: 0;
+}
+
+.container li.active, .container li.hover { color: orange; }
+
+.container ul.hover li.active:not(.hover) { color: #ccc }
+h1 { font-family:'Roboto Condensed'; color:#000; margin-bottom:20px;}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+#rating {
+  font-size: 22pt;
+  /* margin-right: 20px; */
+  float: left;
+  width: 140px;
+  height: 46px;
+  padding: 20px;
+  padding-right: 0px;
+}
+
+.comment_span {
+  font-size: 16pt;
+  /* margin-right: 20px; */
+  float: left;
+  width: 520px;
+  height: 46px;
+  padding: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- <div class="my-rating jq-stars"></div> -->
+
+<div class="container">
+<h1>Human Evaluation for Source Code Summarization</h1>
+
+<pre>
+    <code class="language-clike">
+  unsigned dictionary_hash(char * key)
+  {
+  	int			len ;
+  	unsigned	hash ;
+  	int			i ;
+
+  	len = strlen(key);
+  	for (hash=0, i=0 ; i<len ; i++) {
+  		hash += (unsigned)key[i] ;
+  		hash += (hash<<10);
+  		hash ^= (hash>>6) ;
+  	}
+  	hash += (hash <<3);
+  	hash ^= (hash >>11);
+  	hash += (hash <<15);
+  	return hash ;
+  }
+    </code>
+</pre>
+<div style="width:728px;float:left;height:46px">
+    <span class="comment_span">function codes brief compute the hash key for a string .</span> <div id="rating" class="my-rating"></div>
+<!-- <ul id="starRating1" data-stars="5"> </ul> -->
+</div>
+<div style="width:728px;float:left;height:46px">
+    <span class="comment_span">brief a new hash of a string .</span><div id="rating" class="my-rating2"></div>
+</div>
+<div style="width:728px;float:left;height:46px">
+    <span class="comment_span">function codes brief compute the hash key for a string .</span><div id="rating" class="my-rating3"></div>
+</div>
+<div style="width:728px;float:left;height:46px">
+    <span class="comment_span">brief the hash code for the provided string .</span><div id="rating" class="my-rating4"></div>
+</div>
+<div style="width:728px;float:left;height:46px">
+    <span class="comment_span">brief the the hash function for a given key .</span><div id="rating" class="my-rating5"></div>
+</div>
+<div style="width:728px;float:left;height:46px">
+    <span class="comment_span">function name mimeh parse returns type int parameter list .</span><div id="rating" class="my-rating6"></div>
+</div>
+<!-- <div style="width:728px;float:left;height:46px">
+    <span style="font-size:22pt;margin-right:20px;float:left;width:465px;height:46px;padding:20px">returns a new of the .</span>
+    <label style="width:100px;height:46px;float:left;padding-top:25px"><input type="radio" name="score1" value="0" checked>Good</label>
+    <label style="width:100px;height:46px;float:left;padding-top:25px"><input type="radio" name="score1" value="=0" checked>Bad</label>
+</div>
+<div style="width:728px;float:left;height:46px">
+    <span style="font-size:22pt;margin-right:20px;float:left;width:465px;height:46px;padding:20px">create a new router with a given name .</span>
+    <label style="width:100px;height:46px;float:left;padding-top:25px"><input type="radio" name="score2" value="0" checked>Good</label>
+    <label style="width:100px;height:46px;float:left;padding-top:25px"><input type="radio" name="score2" value="0" checked>Bad</label></div>
+<div style="width:728px;float:left;height:46px">
+    <span style="font-size:22pt;margin-right:20px;float:left;width:465px;height:46px;padding:20px">create a admin .</span>
+    <label style="width:100px;height:46px;float:left;padding-top:25px"><input type="radio" name="score3" value="0" checked>Good</label>
+    <label style="width:100px;height:46px;float:left;padding-top:25px"><input type="radio" name="score3" value="0" checked>Bad</label></div>
+<div style="width:728px;float:left;height:46px">
+    <span style="font-size:22pt;margin-right:20px;float:left;width:465px;height:46px;padding:20px">create a router for a given address .</span>
+    <label style="width:100px;height:46px;float:left;padding-top:25px"><input type="radio" name="score4" value="0" checked>Good</label>
+    <label style="width:100px;height:46px;float:left;padding-top:25px"><input type="radio" name="score4" value="0" checked>Bad</label></div>
+<div style="width:728px;float:left;height:46px">
+    <span style="font-size:22pt;margin-right:20px;float:left;width:465px;height:46px;padding:20px">create a router for the router .</span>
+    <label style="width:100px;height:46px;float:left;padding-top:25px"><input type="radio" name="score5" value="0" checked>Good</label>
+    <label style="width:100px;height:46px;float:left;padding-top:25px"><input type="radio" name="score5" value="0" checked>Bad</label>
+</div>
+<div style="width:728px;float:left;height:46px">
+    <span style="font-size:22pt;margin-right:20px;float:left;width:465px;height:46px;padding:20px">create a new router instance .</span>
+    <label style="width:100px;height:46px;float:left;padding-top:25px"><input type="radio" name="score6" value="0" checked>Good</label>
+    <label style="width:100px;height:46px;float:left;padding-top:25px"><input type="radio" name="score6" value="0" checked>Bad</label>
+</div> -->
+
+
+<button class="button" style="float:left;margin-top:20px">Previous</button>
+<button class="button" style="float:right;margin-top:20px">Next</button>
+
+<script>
+$(function() {
+
+  // basic use comes with defaults values
+  $(".my-rating").starRating({
+    initialRating: 4.0,
+    starSize: 25
+  });
+
+  $(".my-rating2").starRating({
+    initialRating: 3.0,
+    starSize: 25
+  });
+  $(".my-rating3").starRating({
+    initialRating: 4.0,
+    starSize: 25
+  });
+  $(".my-rating4").starRating({
+    initialRating: 3.0,
+    starSize: 25
+  });
+  $(".my-rating5").starRating({
+    initialRating: 3.0,
+    starSize: 25
+  });
+  $(".my-rating6").starRating({
+    initialRating: 2.0,
+    starSize: 25
+  });
+
+  $(".my-rating-2").starRating({
+    totalStars: 5,
+    starSize: 30,
+    starShape: 'rounded',
+    emptyColor: 'lightgray',
+    hoverColor: 'salmon',
+    activeColor: 'crimson',
+    useGradient: false
+  });
+
+  // example grabing rating from markup, and custom colors
+  $(".my-rating-4").starRating({
+    totalStars: 5,
+    starShape: 'rounded',
+    starSize: 40,
+    emptyColor: 'lightgray',
+    hoverColor: 'salmon',
+    activeColor: 'crimson',
+    useGradient: false
+  });
+
+  // specify the gradient start and end for the selected stars
+  $(".my-rating-5").starRating({
+    starSize: 80,
+    strokeWidth: 10,
+    strokeColor: 'black',
+    initialRating: 2,
+    starGradient: {
+      start: '#93BFE2',
+      end: '#105694'
+    },
+  });
+
+  $(".my-rating-6").starRating({
+    totalStars: 5,
+    emptyColor: 'lightgray',
+    hoverColor: 'slategray',
+    activeColor: 'cornflowerblue',
+    initialRating: 4,
+    strokeWidth: 0,
+    useGradient: false,
+    minRating: 1,
+    callback: function(currentRating, $el){
+      alert('rated ' +  currentRating);
+      console.log('DOM Element ', $el);
+    }
+  });
+
+  $(".my-rating-7").starRating({
+    initialRating: 4,
+    readOnly: true,
+    starShape: 'rounded'
+  });
+
+  $(".my-rating-8").starRating({
+    useFullStars: true
+  });
+
+  $(".my-rating-9").starRating({
+    initialRating: 3.5,
+    disableAfterRate: false,
+    onHover: function(currentIndex, currentRating, $el){
+      console.log('index: ', currentIndex, 'currentRating: ', currentRating, ' DOM element ', $el);
+      $('.live-rating').text(currentIndex);
+    },
+    onLeave: function(currentIndex, currentRating, $el){
+      console.log('index: ', currentIndex, 'currentRating: ', currentRating, ' DOM element ', $el);
+      $('.live-rating').text(currentRating);
+    }
+  });
+
+});
+</script>
+<script src="jquery.star-rating-svg.js"></script>
+
+
+<!-- <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script> -->
+
+</body>
+</html>

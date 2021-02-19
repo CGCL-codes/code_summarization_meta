@@ -1,0 +1,1574 @@
+src_code,src_comment, , , , , 
+"static void JX9_JX9_ROUND_HALF_DOWN_Const(jx9_value *pVal, void *pUserData)
+{
+	jx9_value_int(pVal, 2);
+	SXUNUSED(pUserData);
+}
+",sjx9 round half down expands 2,sjx9 round half down expands 2,jx9 round half even expands 3,str round half expands 2,jx9 round half even expands 3,jx9 round half expands expands 1
+
+"main()
+{
+	int len;				/* Current line length */
+	int max;				/* Maximum length seen so far */
+	char line[MAXLINE];		/* Current input line */
+	char longest[MAXLINE];	/* Longest line saved here */
+	
+	max = 0;
+	while ((len = fetchline(line, MAXLINE)) > 0)
+		if (len > max) {
+			max = len;
+			copy(longest, line);
+		}
+		
+	if (max > 80)			/* There was a line */
+		printf(""%s"", longest);
+	return 0;
+}
+",print longest input line,print the longest input line,print the longest input line,print longest input line,print the longest input line,print longest input line
+
+"int le_read_int_1(FILE *fp, uint1 *i1)
+{
+    if (fread(i1, sizeof(uint1), 1, fp) != 1) return (0);
+    return (1);
+}
+",read a little endian int,read a from from the file,read a line from a file,write a config structure,write a message,read a little endian int
+
+"static void JX9_EXTR_PREFIX_ALL_Const(jx9_value *pVal, void *pUserData)
+{
+	SXUNUSED(pUserData); /* cc warning */
+	jx9_value_int(pVal, 0x8);
+}
+",extr prefix all expand 0 x08,extr prefix expand 0 x01,extr prefix all expand 0 x08,ent prefix expand 0 x08,ent disallowed expand 0 x20,jx9 url port
+
+"static int PH7_builtin_is_null(ph7_context *pCtx,int nArg,ph7_value **apArg)
+{
+	int res = 0; /* Assume false by default */
+	if( nArg > 0 ){
+		res = ph7_value_is_null(apArg[0]);
+	}
+	/* Query result */
+	ph7_result_bool(pCtx,res);
+	return PH7_OK;
+}
+",bool is null,bool is resource,bool is int,bool is a,bool is,bool is null
+
+"static double getbits_33(const unsigned char *buff, int pos)
+{
+    return (double)getbits(buff,pos,32)*2.0+getbitu(buff,pos+32,1);
+}
+",get signed 33 bit field,get the current state of the given,get signed 38 bit field,get signed 33 bit field,returns 1 if success 0 if failure == = nothing done,get a bit bit from the buffer
+
+"int dictReplace(dict *d, void *key, void *val)
+{
+    dictEntry *entry, auxentry;
+
+    /* Try to add the element. If the key
+     * does not exists dictAdd will suceed. */
+    if (dictAdd(d, key, val) == DICT_OK)
+        return 1;
+    /* It already exists, get the entry */
+    entry = dictFind(d, key);
+    /* Free the old value and set the new one */
+    /* Set the new value and free the old one. Note that it is important
+     * to do that in this order, as the value may just be exactly the same
+     * as the previous one. In this context, think to reference counting,
+     * you want to increment (set), and then decrement (free), and not the
+     * reverse. */
+    auxentry = *entry;
+    dictSetHashVal(d, entry, val);
+    dictFreeEntryVal(d, &auxentry);
+    return 0;
+}
+",add an element discarding the old if the key already exists,add an element discarding the old if the key already exists,add an element to the old if the key exists,add an element discarding the old if the key already exists,add an element to the old key is key,add the basis configuration to the configuration list
+
+"int clist_rem_next(CList *list, CListElmt *element, void **data)
+{
+	CListElmt *old_element;
+
+	/*
+	* Do not allow removal from an empty list.
+	*/
+
+	if (clist_size(list) == 0)
+	{
+		return -1;
+	}
+
+	*data = element->next->data;
+	if (element->next == element)
+	{
+		/*
+		*	Handle removing the last element.
+		*/
+		old_element = element->next;
+		list->head = NULL;
+	}
+	else
+	{
+		/*
+		* Handle removing other than the last element.
+		*/
+		old_element = element->next;
+		element->next = element->next->next;
+		if (old_element == clist_head(list))
+		{
+			list->head = old_element->next;
+		}
+	}
+
+	/*
+	* Free the storage allocated by the abstract datatype.
+	*/
+	free(old_element);
+
+	/*
+	* Adjust the size of the list to account for the removed element.
+	*/
+	list->size--;
+
+	return 0;
+}",clist rem next,remove remove from head return the head from the link table,add to suspend list add a pcb to suspend list,clist rem next,find the list in the list,insert new node to the list of the list of a new list
+
+"static int vm_builtin_xml_parser_create(ph7_context *pCtx,int nArg,ph7_value **apArg)
+{
+	ph7_xml_engine *pEngine;
+	/* Allocate a new instance */
+	pEngine = VmCreateXMLEngine(&(*pCtx),0,':');
+	if( pEngine == 0 ){
+		ph7_context_throw_error(pCtx,PH7_CTX_ERR,""PH7 is running out of memory"");
+		/* Return null */
+		ph7_result_null(pCtx);
+		SXUNUSED(nArg); /* cc warning */
+		SXUNUSED(apArg);
+		return PH7_OK;
+	}
+	/* Return the engine as a resource */
+	ph7_result_resource(pCtx,pEngine);
+	return PH7_OK;
+}
+",resource xml parser create,resource xml parser create create cache,int getmygid,bool allocate memory memory memory memory,bool xml set unparsed entity decl handler,int get
+
+"static void JX9_JX9_URL_SCHEME_Const(jx9_value *pVal, void *pUserData)
+{
+	SXUNUSED(pUserData); /* cc warning */
+	jx9_value_int(pVal, 1);
+}
+",jx9 url scheme,jx9 url fragment,jx9 url port,jx9 url fragment,jx9 url scheme,scandir sort expand 0 x01
+
+"int HTS_SStreamSet_get_duration(HTS_SStreamSet * sss, int state_index)
+{
+   return sss->duration[state_index];
+}
+",hts s stream set get duration get state duration,hts engine load label from fp load label from file name,hts s stream set get gv mean set gv variance parameter,hts s stream set get duration duration get duration duration,hts stream stream stream get stream parameter parameter,set the current vm instruction to the given best
+
+"int putc(unsigned char c)
+{
+	if (c == '\n')
+		serial_send_byte(SERIAL_DEFAULT_DEVICE, '\r');
+	return serial_send_byte(SERIAL_DEFAULT_DEVICE, c);
+}
+",send a character,add a string to the end of the line,send a character,read the current line,write the file read a line into s,write a character to the input stream
+
+"static void PH7_GLOB_NOCHECK_Const(ph7_value *pVal,void *pUserData)
+{
+	SXUNUSED(pUserData); /* cc warning */
+	ph7_value_int(pVal,0x04);
+}
+",glob nocheck expand 0 x04,glob nocheck expand 0 x04,ent url expand 0 x04,glob nocheck expand 0 x04,ent xml expand 0 x80,ent noquotes expand 0 x04
+
+"int binsearch(int x, int v[], int n)
+{
+	int low, high, mid;
+
+	low = 0;
+	high = n - 1;
+	while (low <= high) {
+		mid = (low+high) / 2;
+		if (x < v[mid])
+			high = mid - 1;
+		else if (x > v[mid])
+			low = mid + 1;
+		else
+			return mid;
+	}
+
+	return -1;
+}
+",binsearch find x in v 0 = v 1 =,binsearch find word in tab 0,binsearch find a in in 0,binsearch find x in v 0 = v 1 =,binsearch find word in tab 0,binsearch find x in 0 1 = 0 1 = 0
+
+"int mygetline(char s[], int lim)
+{
+  int c, i;
+  
+  for (i = 0; i < lim-1 && (c = getchar()) !=EOF && c!='\n'; ++i)
+    s[i] = c;
+  if (c == '\n')
+  {
+    s[i] = c;
+    ++i;
+  }
+  s[i] = '\0';
+  return i;
+}
+",getline read a line into s return length,getline read a line into s return length,get the read line into s return length,getline read a line into s return length,getline read a line into s return length,getline read a line into s return length
+
+"int mpi_get_bit( const mpi *X, size_t pos )
+{
+    if( X->n * biL <= pos )
+        return( 0 );
+
+    return ( X->p[pos / biL] >> ( pos % biL ) ) & 0x01;
+}
+",get a specific bit,get a specific bit,get a random bit,get a bit bit from the given given x,get the virtual machine to it is initial state,returns a pointer to a string
+
+"ddef_t *ED_FindField (char *name)
+{
+	ddef_t		*def;
+	int			i;
+	
+	for (i=0 ; i<progs->numfielddefs ; i++)
+	{
+		def = &pr_fielddefs[i];
+		if (!strcmp(pr_strings + def->s_name,name) )
+			return def;
+	}
+	return NULL;
+}
+",ed find field,compare two configurations,ed find out edges for a a string,ed find field name,find a new list of a new list of the list of the list of the list of the list of the list,find a job in the job list
+
+"int main()
+{
+    char word[MAXWORD];
+    int n;
+
+    while (getword(word, MAXWORD) != EOF)
+        if (isalpha(word[0]))
+            if ((n = binsearch(word, keytab, NKEYS)) >= 0)
+                keytab[n].count++;
+    for (n = 0; n < NKEYS; n++)
+        if (keytab[n].count > 0)
+            printf(""%4d %s\n"",
+                keytab[n].count, keytab[n].word);
+    return 0;
+}
+",count c keywords,count c keywords,count c keywords,count all users in the whole hub,count c keywords,count c keywords
+
+"main()
+{
+    int i;
+    for (i = 0; i < 10; ++i) {
+        printf(""%d %d %d\n"", i, power(2,i), power(-3,i));
+    }
+    return 0;
+}
+",test power function,test power function,display the banner a help message and exit,test power function,brief check if a number is multiple of another number,test power function
+
+"static void _drawone(int num)
+{
+    int i, col, slen;
+
+    if (hidden)
+        return;
+
+    slen = slk[num].len;
+
+    switch (slk[num].format)
+    {
+    case 0:  /* LEFT */
+        col = 0;
+        break;
+
+    case 1:  /* CENTER */
+        col = (label_length - slen) / 2;
+
+        if (col + slen > label_length)
+            --col;
+        break;
+
+    default:  /* RIGHT */
+        col = label_length - slen;
+    }
+
+    wmove(SP->slk_winptr, label_line, slk[num].start_col);
+
+    for (i = 0; i < label_length; ++i)
+        waddch(SP->slk_winptr, (i >= col && i < (col + slen)) ?
+               slk[num].label[i - col] : ' ');
+}
+",draw a single button,r draw spanlet,parse the file datablock,brief the the number of the given in the list,draw a single single point,draw a single button
+
+"static double dominant_ori( double* hist, int n )
+{
+  double omax;
+  int maxbin, i;
+
+  omax = hist[0];
+  maxbin = 0;
+  for( i = 1; i < n; i++ )
+    if( hist[i] > omax )
+      {
+	omax = hist[i];
+	maxbin = i;
+      }
+  return omax;
+}
+",finds the magnitude of the dominant orientation in a histogram param hist an orientation histogram param n number of bins return returns the value of the largest bin in hist,compare two symbols for working purposes symbols that begin with upper case letters,get a number of the given of the given number of the given number of the given number of the given value in the given value,get the shape of the current cursor,function the given a matrix,finds the magnitude of the dominant orientation in a histogram param hist an orientation histogram param n number of bins return returns the integer of the largest bin in hist
+
+"_PUBLIC_ char *talloc_vasprintf_append(char *s, const char *fmt, va_list ap)
+{
+	if (unlikely(!s)) {
+		return talloc_vasprintf(NULL, fmt, ap);
+	}
+
+	return __talloc_vaslenprintf_append(s, strlen(s), fmt, ap);
+}
+",realloc p s to append the formatted result of p fmt and p ap and return p s which may have moved,realloc p s to append the formatted result of p fmt and p ap and return p s which may have moved,return the s of the p s p s p p s p p p p p p p p p p p p p p p p p p p p,ys trunc,power to all of the and return the,strndup with a talloc
+
+"static int MemHashCursorSeek(unqlite_kv_cursor *pCursor,const void *pKey,int nByte,int iPos)
+{
+	mem_hash_kv_engine *pEngine = (mem_hash_kv_engine *)pCursor->pStore;
+	mem_hash_cursor *pMem = (mem_hash_cursor *)pCursor;
+	/* Perform the lookup */
+	pMem->pCur = MemHashGetEntry(pEngine,pKey,nByte);
+	if( pMem->pCur == 0 ){
+		if( iPos != UNQLITE_CURSOR_MATCH_EXACT ){
+			/* noop; */
+		}
+		/* No such record */
+		return UNQLITE_NOTFOUND;
+	}
+	return UNQLITE_OK;
+}
+",find a particular record,point to the next entry,find a partiuclar record,find a particular record,find a particular record,find a record in the given key
+
+"JX9_PRIVATE sxi32 jx9MemObjTryInteger(jx9_value *pObj)
+{
+	if( pObj->iFlags & MEMOBJ_REAL ){
+		/* Work only with reals */
+		MemObjTryIntger(&(*pObj));
+	}
+	return SXRET_OK;
+}
+",try a get an integer representation of the given jx9 value,try a get an integer representation of the given vedis value,try a jx9 value to the given value,try a get an integer representation of the given jx9 value,convert a jx9 value to type boolean,try a get an integer representation of the given jx9 value
+
+"void SCR_DrawConsole (void)
+{
+	if (scr_con_current)
+	{
+		scr_copyeverything = 1;
+		Con_DrawConsole ((int)scr_con_current, true);
+		clearconsole = 0;
+	}
+	else
+	{
+		if (key_dest == key_game || key_dest == key_message)
+			Con_DrawNotify ();	// only draw notify in game
+	}
+}
+",scr draw console,quaked target splash,brief a new bit value to be be used to the end of the end of the end of the,draw a new f,sv send response,scr draw console
+
+"unsigned dictionary_hash(char * key)
+{
+	int			len ;
+	unsigned	hash ;
+	int			i ;
+
+	len = strlen(key);
+	for (hash=0, i=0 ; i<len ; i++) {
+		hash += (unsigned)key[i] ;
+		hash += (hash<<10);
+		hash ^= (hash>>6) ;
+	}
+	hash += (hash <<3);
+	hash ^= (hash >>11);
+	hash += (hash <<15);
+	return hash ;
+}
+",function codes brief compute the hash key for a string,brief a new hash of a string,function codes brief compute the hash key for a string,brief the hash code for the provided string,brief the the hash function for a given key,function name mimeh parse returns type int parameter list 1
+
+"static int lhCursorValid(vedis_kv_cursor *pPtr)
+{
+	lhash_kv_cursor *pCur = (lhash_kv_cursor *)pPtr;
+	return (pCur->iState == L_HASH_CURSOR_STATE_CELL) && pCur->pCell;
+}
+",is a valid cursor,is a valid cursor,is a cursor,is a valid cursor,is a valid cursor,return the users in the whole hub
+
+"void ndb_io_doQuadAlign(FILE *f)
+{
+    ULONG filepos = ftell(f);
+    if ((filepos & 3) > 0)
+    {
+        if (ndb_getDebugLevel() >= 7)
+        {
+            fprintf(stdout, ""ndb_io_doQuadAlign: changing file position from 0x%lX "", ftell(f));
+            fflush(stdout);
+        }
+        filepos = (filepos & 0xfffffffc) + 4;
+        fseek(f, filepos, SEEK_SET);
+        if (ndb_getDebugLevel() >= 7)
+        {
+            fprintf(stdout, ""to 0x%lX "", ftell(f));
+            fflush(stdout);
+        }
+    }
+    else
+    {
+        if (ndb_getDebugLevel() >= 7)
+        {
+            fprintf(stdout, ""ndb_io_doQuadAlign: file position 0x%lX already quad aligned\n"", ftell(f));
+            fflush(stdout);
+        }
+    }
+    return;
+}
+",ndb io do quad align,ndb osdep make ext file name,sigint handler the kernel sends a sigtstp to the shell whenever the user types ctrl z at the keyboard,ndb io do,end of,brief sets the trigger param qid param msgbuffer param len param len param len param len param len param len param len param len param len param len param len param len param len param len param len
+
+"void Plink_delete(struct plink *plp)
+{
+	struct plink *nextpl;
+
+	while(plp) {
+		nextpl = plp->next;
+		plp = nextpl;
+	}
+}
+",delete every plink on the list,print all farenhiet table,delete every plink on the list,add every plink on the list,delete every plink on the list,our configuration function
+
+"UNQLITE_PRIVATE int unqlitePagerSetCachesize(Pager *pPager,int mxPage)
+{
+	if( mxPage < 256 ){
+		return UNQLITE_INVALID;
+	}
+	pPager->nCacheMax = mxPage;
+	return UNQLITE_OK;
+}
+",set a cache limit,set the next entry in the table,set a page,set a cache limit,set the virtual address to the given key and,set a set
+
+"int create_empty_file(const char *fname)
+{
+  int fd;
+
+  fd = open(fname, O_WRONLY | O_CREAT | O_TRUNC | O_EXCL | O_BINARY, 0666);
+  if (fd == -1)
+  {
+    return -1;
+  }
+  close(fd);
+  return 0;
+}
+",create an empty file,create a file to the file to the file to the file to the file,write the database file to level e lock which must be either no lock or shared lock,return the current number of the given key,create a empty file,returns 1 if success 0 if failure == = nothing done
+
+"static void JX9_EXTR_PREFIX_SAME_Const(jx9_value *pVal, void *pUserData)
+{
+	SXUNUSED(pUserData); /* cc warning */
+	jx9_value_int(pVal, 0x4);
+}
+",extr prefix same expand 0 x04,ent url expand 0 x04,extr prefix same expand 0 x04,ent noquotes expand 0 x04,extr prefix expand 0 x01,jx9 url port
+
+"void z_erase_line (void)
+{
+    zword pixels = zargs[0];
+    zword y, x;
+
+    flush_buffer ();
+
+    /* Clipping at the right margin of the current window */
+
+    if (--pixels == 0 || pixels > units_left ())
+	pixels = units_left ();
+
+    /* Erase from cursor position */
+
+    y = cwp->y_pos + cwp->y_cursor - 1;
+    x = cwp->x_pos + cwp->x_cursor - 1;
+
+    os_erase_area (y, x, y + font_height - 1, x + pixels - 1);
+
+}/* z_erase_line */
+",z erase line erase the line starting at the cursor position,z z z z jump 1 on success 1 on success,z jl branch if the given token is a valid,z erase line erase a single line of the input filesystem,draw script refresh,brief the the the of the given a set
+
+"static void JX9_JX9_ROUND_HALF_ODD_Const(jx9_value *pVal, void *pUserData)
+{
+	jx9_value_int(pVal, 4);
+	SXUNUSED(pUserData);
+}
+",jx9 round half odd expands 4,jx9 round half even expands 3,str round half expands expands,jx9 round half even expands 3,jx9 round half odd expands 4,jx9 round half expands expands 1
+
+"JX9_PRIVATE sxi32 jx9StreamReadWholeFile(void *pHandle, const jx9_io_stream *pStream, SyBlob *pOut)
+{
+	jx9_int64 nRead;
+	char zBuf[8192]; /* 8K */
+	int rc;
+	/* Perform the requested operation */
+	for(;;){
+		nRead = pStream->xRead(pHandle, zBuf, sizeof(zBuf));
+		if( nRead < 1 ){
+			/* EOF or IO error */
+			break;
+		}
+		/* Append contents */
+		rc = SyBlobAppend(pOut, zBuf, (sxu32)nRead);
+		if( rc != SXRET_OK ){
+			break;
+		}
+	}
+	return SyBlobLength(pOut) > 0 ? SXRET_OK : -1;
+}
+",read the whole contents of an open io stream handle i,write the database file to level e lock which must be either no lock or shared lock,get the current time for the given time,read a 64 bit integer from the stream stream,set the input stream,read the whole contents of an open io stream handle i
+
+"void SHA1Init(SHA1_CTX* context)
+{
+    /* SHA1 initialization constants */
+    context->state[0] = 0x67452301;
+    context->state[1] = 0xEFCDAB89;
+    context->state[2] = 0x98BADCFE;
+    context->state[3] = 0x10325476;
+    context->state[4] = 0xC3D2E1F0;
+    context->count[0] = context->count[1] = 0;
+}
+",sha1 init initialize new context,sha1 init initialize new context,sha1 init initialize new context,sha1 init initialize new context,sha1 reset description this function will initialize the sha1 context in preparation for computing a new message digest,sha1 init initialize new context
+
+"float squareRoot (float x)
+{
+	const float epsilon = .00001;
+	float guess = 1.0;
+	float absoluteValue (float x);
+
+	if ( x < 0 )
+	{
+		printf (""Negative argument to squareRoot.\n"");
+		return -1.0;
+	}
+
+	while ( absoluteValue (guess * guess - x) >= epsilon ){
+		guess = ( x / guess + guess ) / 2.0;
+		printf (""%f\n"", guess);}
+		
+	return guess;
+}
+",function to compute the square root of a number,this function is a the number of the a number of the a number of the given a given number,function to searcg a convex bit of a number,this will be used the temporary command and module,print the the process for the process,function to create a binary search tree
+
+"int rwl_writetrylock (rwlock_t *rwl)
+{
+    int status, status2;
+
+    if (rwl->valid != RWLOCK_VALID)
+        return EINVAL;
+    status = pthread_mutex_lock (&rwl->mutex);
+    if (status != 0)
+        return status;
+    if (rwl->w_active || rwl->r_active > 0)
+        status = EBUSY;
+    else
+        rwl->w_active = 1;
+    status2 = pthread_mutex_unlock (&rwl->mutex);
+    return (status != 0 ? status : status2);
+}
+",attempt to lock a read write lock for write access,attempt to lock a read write lock for write access,function to read a file,brief read a read lock from read read access,write a read lock lock from write access,unlock the lock read read lock lock for write access
+
+"int interpolate( int level, int value_00, int value_32 )
+{
+    return value_00 + level * (value_32 - value_00) / 32;
+}
+",simple linear interpolation,simple linear interpolation,brief compute data from adc,parse the database code from an error and,return a value of the given value,brief the specific bit in a given a value
+
+"static void JX9_EXTR_SKIP_Const(jx9_value *pVal, void *pUserData)
+{
+	SXUNUSED(pUserData); /* cc warning */
+	jx9_value_int(pVal, 0x2);
+}
+",extr skip expand 0 x02,extr skip expand 0 x02,extr prefix expand 0 x01,ent sort expand 0 x01,ent disallowed expand 0 x20,jx9 url port
+
+"void print_message_function ( void *ptr )
+{
+    thdata *data;            
+    data = (thdata *) ptr;  /* type cast to a pointer to thdata */
+    
+    /* do the work */
+    printf(""Thread %d says %s \n"", data->thread_no, data->message);
+    
+    pthread_exit(0); /* exit */
+} /* print_message_function ( void *ptr ) */",print message function is used as the start routine for the threads used it accepts a void pointer,print message function is used as the start routine for the threads used it accepts a void pointer,brief display event usage of all currently selected command and returns none,display the message to the the,function function print this function function the the this function by the the message of the message and the it and the it and the it and the it and the it,print the message and exit
+
+"int find_in_buf(char *buf, char *what, int sz, int len, int start)
+{
+   int i;
+   
+   for (; start < sz; start++) {
+      for (i = 0; i < len; i++) {
+	if (*(buf+start+i) != *(what+i)) break;
+      }
+      if (i == len) return(start);
+   }
+   return(0);
+}
+",general search routine find something in something else,find a given number of the given in the given string in the given string in the given string in the given string in the given string,get the next token from the input is in the file and then get the result in this,find an obj in player is inventory,general search routine find something in something else,find the find in the given key
+
+"void Mod_LoadLighting (lump_t *l)
+{
+	if (!l->filelen)
+	{
+		loadmodel->lightdata = NULL;
+		return;
+	}
+	loadmodel->lightdata = Hunk_AllocName ( l->filelen, loadname);
+	Q_memcpy (loadmodel->lightdata, mod_base + l->fileofs, l->filelen);
+}
+",mod load lighting,mod load visibility,mod load lighting,mod load load from load from from the given,print fahrenheit celsius table,function to the memory for the
+
+"static lhash_bmap_rec * lhMapFindBucket(lhash_kv_engine *pEngine,pgno iLogic)
+{
+	lhash_bmap_rec *pRec;
+	if( pEngine->nBuckRec < 1 ){
+		/* Don't bother */
+		return 0;
+	}
+	pRec = pEngine->apMap[iLogic & (pEngine->nBuckSize - 1)];
+	for(;;){
+		if( pRec == 0 ){
+			break;
+		}
+		if( pRec->iLogic == iLogic ){
+			return pRec;
+		}
+		/* Point to the next entry */
+		pRec = pRec->pNextCol;
+	}
+	/* No such record */
+	return 0;
+}
+",given a logical bucket number return the record associated with it,given a logical bucket number return the record associated with it,return a page to the node,return a pointer to the given node in the given key,set the virtual address to the given data and process,find a cmd in the linklist and return the datanode pointer
+
+"int *bubble_sort(int *numbers, int count, compare_cb cmp)
+{
+	int temp = 0;
+	int i = 0;
+	int j = 0;
+
+	int *target = malloc(count * sizeof(int));
+	if (!target) die (""Memory error"");
+
+	memcpy(target, numbers, count * sizeof(int));
+
+	for(i = 0; i < count; i++) {
+	
+		for ( j = 0; j < count -1; j++) {
+			if (cmp(target[j], target[j+1]) > 0) {
+				temp = target[j+1];
+				target[j+1] = target[j];
+				target[j] = temp;
+			}
+		}
+	}
+
+	return target;
+}
+",a classic bubble sort function that uses the compare cb to do the sorting,reads the process level information in the cases of single process or cmdline with pipelines,sort sort function to sort the matrix to be a matrix to be a matrix to be sort of the array of the sort is the array,a classic sort sort function that uses the compare cb to do the sorting,function to the the the of the given a set,r alias transform
+
+"static int ReadInt32(unqlite_file *pFd,sxu32 *pOut,sxi64 iOfft)
+{
+	unsigned char zBuf[4];
+	int rc;
+	rc = unqliteOsRead(pFd,zBuf,sizeof(zBuf),iOfft);
+	if( rc != UNQLITE_OK ){
+		return rc;
+	}
+	SyBigEndianUnpack32(zBuf,pOut);
+	return UNQLITE_OK;
+}
+",control flags define pager ctrl commit err 0 x001 commit error read a 32 bit integer from the given file descriptor,read a 64 bit integer from the given file descriptor,write the journal header in the given file descriptor,string flags,write the database header,control flags define pager ctrl commit err 0 x001 commit error read a 32 bit integer from the given file descriptor
+
+"void boolXor()
+{
+	match('~');
+	boolTerm();
+	emit(""POP BX"");
+	emit(""XOR AX, BX"");
+}
+",reconhece e traduz um operador xor,generate a random string,analisa e traduz um comando for,reconhece e traduz um operador matemtico,brief the the current of the process,sv physics f kick a child process off the list
+
+"void HTS_Engine_set_gv_interpolation_weight(HTS_Engine * engine, int stream_index, int interpolation_index, double f)
+{
+   engine->global.gv_iw[stream_index][interpolation_index] = f;
+}
+",hts engine set gv interpolation weight set interpolation weight for gv,hts get stream address get next page of state,hts engine load gv switch from fp load gv switch from file descriptor,hts engine set set gv gv switch for the given window,hts the set set set set set set set set set set set set set set set set set set set set set set,hts engine set gv interpolation weight set interpolation interpolation for interpolation containing weight
+
+"VEDIS_PRIVATE sxi32 vedisMemObjInitFromInt(vedis *pStore, vedis_value *pObj, sxi64 iVal)
+{
+	/* Zero the structure */
+	SyZero(pObj, sizeof(vedis_value));
+	/* Initialize fields */
+	SyBlobInit(&pObj->sBlob, &pStore->sMem);
+	/* Set the desired type */
+	pObj->x.iVal = iVal;
+	pObj->iFlags = MEMOBJ_INT;
+	return SXRET_OK;
+}
+",initialize a vedis value to the integer type,initialize a jx9 value to the integer type,initialize a jx9 value to the integer type,initialize a vedis value to the integer type,initialize a jx9 value to the string type,initialize the jx9 value to the string type
+
+"int hostname_to_ip(char *hostname , char *ip)
+{
+    int sockfd;  
+    struct addrinfo hints, *servinfo, *p;
+    struct sockaddr_in *h;
+    int rv;
+ 
+    memset(&hints, 0, sizeof hints);
+    hints.ai_family = AF_UNSPEC; // use AF_INET6 to force IPv6
+    hints.ai_socktype = SOCK_STREAM;
+ 
+    if ( (rv = getaddrinfo( hostname , ""http"" , &hints , &servinfo)) != 0) 
+    {
+        fprintf(stderr, ""getaddrinfo: %s\n"", gai_strerror(rv));
+        return 1;
+    }
+ 
+    // loop through all the results and connect to the first we can
+    for(p = servinfo; p != NULL; p = p->ai_next) 
+    {
+        h = (struct sockaddr_in *) p->ai_addr;
+        strcpy(ip , inet_ntoa( h->sin_addr ) );
+    }
+     
+    freeaddrinfo(servinfo); // all done with this structure
+    return 0;
+}  
+",get ip from domain name,read the current time,function to be a from the to the to the to the to the to the given from the given from the given value,check if the given string contains only characters from the given mask,read palm database record header,get hostname in domain name
+
+"bool free_job(job_t *j) 
+{
+	if(!j)
+		return true;
+	free(j->commandinfo);
+	process_t *p;
+	for(p = j->first_process; p; p = p->next) {
+		int i;
+		for(i = 0; i < p->argc; i++)
+			free(p->argv[i]);
+		free(p->argv);
+        	free(p->ifile);
+        	free(p->ofile);
+	}
+	free(j);
+	return true;
+}
+",free job iterates and invokes free on all its members,free the memory associated with a modl structure,free job list for the job,free free job on job on job,free all of the job list and free all nodes,free job iterates and invokes free on all its members
+
+"PRIVATE char *file_makename(struct lemon *lemp, const char *suffix)
+{
+  char *name;
+  char *cp;
+
+  name = (char*)malloc( lemonStrlen(lemp->filename) + lemonStrlen(suffix) + 5 );
+  if( name==0 ){
+    fprintf(stderr,""Can't allocate space for a filename.\n"");
+    exit(1);
+  }
+  strcpy(name,lemp->filename);
+  cp = strrchr(name,'.');
+  if( cp ) *cp = 0;
+  strcat(name,suffix);
+  return name;
+}
+",generate a filename with the given suffix,read a file and parse the file and prints the line,generate a a message,write the file file and copy it to file,generate a filename with the given suffix,read a string to the file of the given string
+
+"static void ulltoa(unsigned long long i, char *str)
+{
+	int j = 0, k;
+	char tmp;
+
+	do {
+		str[j++] = i % 10 + '0';
+	} while ((i /= 10) > 0);
+	str[j] = '\0';
+
+	/* Reverse the string. */
+	for (j = 0, k = strlen(str) - 1; j < k; j++, k--) {
+		tmp = str[k];
+		str[k] = str[j];
+		str[j] = tmp;
+	}
+}
+",converts unsigned long to ascii string,reverse n bytes,reverse a string in string,reverse reverse string s in place,reverse n in characters in s 1 if string,converts long string to ascii string
+
+"bool remove_obj( CHAR_DATA *ch, int iWear, bool fReplace )
+{
+    OBJ_DATA *obj;
+
+    if ( ( obj = get_eq_char( ch, iWear ) ) == NULL )
+	return TRUE;
+
+    if ( !fReplace )
+	return FALSE;
+
+    if ( IS_SET(obj->extra_flags, ITEM_NOREMOVE) )
+    {
+	act( ""You can't remove $p."", ch, obj, NULL, TO_CHAR );
+	return FALSE;
+    }
+
+    unequip_char( ch, obj );
+    act( ""$n stops using $p."", ch, obj, NULL, TO_ROOM );
+    act( ""You stop using $p."", ch, obj, NULL, TO_CHAR );
+    return TRUE;
+}
+",remove an object,reserve an object of an array of an array,return the the list of the list,check the chunk of the currently selected file and returns the if no,remove an object,add a link table
+
+"struct rb_node *rb_augment_erase_begin(struct rb_node *node)
+{
+    struct rb_node *deepest;
+
+    if (!node->rb_right && !node->rb_left)
+        deepest = rb_parent(node);
+    else if (!node->rb_right)
+        deepest = node->rb_left;
+    else if (!node->rb_left)
+        deepest = node->rb_right;
+    else {
+        deepest = rb_next(node);
+        if (deepest->rb_right)
+            deepest = deepest->rb_right;
+        else if (rb_parent(deepest) != node)
+            deepest = rb_parent(deepest);
+    }
+
+    return deepest;
+}
+",before removing the node find the deepest node on the rebalance path that will still be there after node gets removed,before removing the node find the deepest node on the rebalance path that will still be there after node gets removed,search for the tree node in the tree node in the removed entry and the rebalance rebalance,after removal update the tree to account for the removed entry and any rebalance damage,fm pqueue get maxgain vertex,return the node of the given node in the list
+
+"void Con_Clear_f (void)
+{
+	if (con_text)
+		Q_memset (con_text, ' ', CON_TEXTSIZE);
+}
+",con clear f,glut calls this routine when the window is resized,sv clear process,stgset sets staging buffer,set clear f,sends a new to the the given key
+
+"static void vedisKvIoPageReload(vedis_kv_handle pHandle,void (*xPageReload)(void *))
+{
+	Pager *pPager = (Pager *)pHandle;
+	pPager->xPageReload = xPageReload;
+}
+",set a page reload callback,set a page reload callback,set a page callback,set a page reload callback,set a page reload callback,set the page reload callback
+
+"static void VIC_VectEnableConfig(u16 VIC_Source, u16 VIC_Priority)
+{
+  if (VIC_Source < VIC_REGISTER_NUMBER) /* VIC0 */
+    VIC0->VCiR[VIC_Priority] |= VIC_VECTOR_ENABLE_MASK;
+  else /* VIC1 */
+    VIC1->VCiR[VIC_Priority] |= VIC_VECTOR_ENABLE_MASK;
+}
+",function name vic vect enable config description enable the vector interrupt,open the orb a,function name vic vect config description select the current enable to the correspondent peripheral,function name vic get description description this function is the interrupt of the interrupt,function name vic get description description description the the interrupt of the interrupt of the new,function name mc clear flag description clears the mc emergency register
+
+"VEDIS_PRIVATE int vedisTableDeleteRecord(vedis_table *pTable,vedis_value *pKey)
+{
+	vedis_table_entry *pEntry;
+	int rc;
+	/* Fetch */
+	rc = vedisTableLookup(pTable,pKey,&pEntry);
+	if( rc != VEDIS_OK ){
+		return rc;
+	}
+	/* Perform the deletion */
+	rc = VedisRemoveTableEntry(pTable,pEntry);
+	return rc;
+}
+",delete a record from the given table,delete a record record,brief a a record,delete a record from the given table,find a cmd in the linklist and return the datanode pointer,fetch a record from the given
+
+"void insert(void)
+{
+  int part_number;
+
+  if (num_parts == MAX_PARTS) {
+    printf(""Database is full; can't add more parts.\n"");
+    return;
+  }
+
+  printf(""Enter part number: "");
+  scanf(""%d"", &part_number);
+  if (find_part(part_number) >= 0) {
+    printf(""Part already exists.\n"");
+    return;
+  }
+
+  inventory[num_parts].number = part_number;
+  printf(""Enter part name: "");
+  read_line(inventory[num_parts].name, NAME_LEN);
+  printf(""Enter quantity on hand: "");
+  scanf(""%d"", &inventory[num_parts].on_hand);
+  num_parts++;
+}
+",insert prompts the user for information about a new part and then inserts the part into the database,print prompts the user to enter a part number the part part and the part in the database,this function will display the program for the program pre none post the program,update prompts the user to enter a part number,insert prompts the user from the message for the database and then inserts the part into the database,function to the the queue
+
+"int rwl_readunlock (rwlock_t *rwl)
+{
+    int status, status2;
+
+    if (rwl->valid != RWLOCK_VALID)
+        return EINVAL;
+    status = pthread_mutex_lock (&rwl->mutex);
+    if (status != 0)
+        return status;
+    rwl->r_active--;
+    if (rwl->r_active == 0 && rwl->w_wait > 0)
+        status = pthread_cond_signal (&rwl->write);
+    status2 = pthread_mutex_unlock (&rwl->mutex);
+    return (status2 == 0 ? status : status2);
+}
+",unlock a read write lock from read access,initialize a read lock lock read read read read access from access,write a read lock lock from write access,unlock a read write lock from read access,unlock the lock time of a lock,function to read a file
+
+"void axel_close( axel_t *axel )
+{
+	int i;
+	message_t *m;
+	
+	/* Terminate any thread still running				*/
+	for( i = 0; i < axel->conf->num_connections; i ++ )
+		/* don't try to kill non existing thread */
+		if ( *axel->conn[i].setup_thread != 0 )
+			pthread_cancel( *axel->conn[i].setup_thread );
+	
+	/* Delete state file if necessary				*/
+	if( axel->ready == 1 )
+	{
+		snprintf( buffer, MAX_STRING, ""%s.st"", axel->filename );
+		unlink( buffer );
+	}
+	/* Else: Create it.. 						*/
+	else if( axel->bytes_done > 0 )
+	{
+		save_state( axel );
+	}
+
+	/* Delete any message not processed yet				*/
+	while( axel->message )
+	{
+		m = axel->message;
+		axel->message = axel->message->next;
+		free( m );
+	}
+	
+	/* Close all connections and local file				*/
+	close( axel->outfd );
+	for( i = 0; i < axel->conf->num_connections; i ++ )
+		conn_disconnect( &axel->conn[i] );
+
+	free( axel->conn );
+	free( axel );
+}
+",close an axel connection,close an axel connection,close an axel connection,close an axel connection,close the axel connection,close an axel connection
+
+"unsigned int JSHash(char* str, unsigned int len)
+{
+   unsigned int hash = 1315423911;
+   unsigned int i    = 0;
+
+   for(i = 0; i < len; str++, i++)
+   {
+      hash ^= ((hash << 5) + (*str) + (hash >> 2));
+   }
+
+   return hash;
+}
+",end of rs hash function,end of sdbm hash function,end of sdbm hash function,end of rs hash function,end of bkdr hash function,end of sdbm hash function
+
+"main()
+{
+	long nc;
+
+	nc = 0;
+
+	while (getchar() != EOF)
+		++nc;
+	printf(""%ld\n"", nc);
+}",count characters in input 1 st version,count lines in input,count characters in input 2 nd version,count characters in input in place,count characters in input 1 st version,count input to output 1 st version
+
+"static void PH7_CASE_LOWER_Const(ph7_value *pVal,void *pUserData)
+{
+	ph7_value_int(pVal,0);
+	SXUNUSED(pUserData);
+}
+",case lower expands 0,case round expands,case lower expands 0,e notice expands,sort regular expands 3,case upper expands 0
+
+"static int unixCurrentTime(vedis_vfs *pVfs,Sytm *pOut)
+{
+	struct tm *pTm;
+	time_t tt;
+	SXUNUSED(pVfs);
+	time(&tt);
+	pTm = gmtime(&tt);
+	if( pTm ){ /* Yes, it can fail */
+		STRUCT_TM_TO_SYTM(pTm,pOut);
+	}
+	return VEDIS_OK;
+}
+",export the current system time,write the current drawing color,find the job for the given key,export the current system time,command commit commit the transaction phase,callback the current time
+
+"JX9_PRIVATE void jx9HashmapExtractNodeValue(jx9_hashmap_node *pNode, jx9_value *pValue, int bStore)
+{
+	jx9_value *pEntry = HashmapExtractNodeValue(pNode);
+	if( pEntry ){
+		if( bStore ){
+			jx9MemObjStore(pEntry, pValue);
+		}else{
+			jx9MemObjLoad(pEntry, pValue);
+		}
+	}else{
+		jx9MemObjRelease(pValue);
+	}
+}
+",extract a node value,extract the node value from a dictionary,brief the the the of the given a given,extract a node value,get the next node in the tree,extract a node value
+
+"int client_send_tcp_data(client_t *client)
+{
+    int ret;
+    
+    ret = sock_send(client->tcp_sock, client->udp2tcp, client->udp2tcp_len);
+
+    if(ret < 0)
+        return -1;
+    else if(ret == 0)
+        return -2;
+    else    
+        return 0;
+}
+",send data received from udp tunnel to tcp connection,function objective pre,lock the,return the given of the given key,send data received from udp tunnel to tcp connection,send a message to the server of the data to the data of the data to the data of the server
+
+"void Sbar_DrawTransPic (int x, int y, qpic_t *pic)
+{
+	if (cl.gametype == GAME_DEATHMATCH)
+		Draw_TransPic (x /*+ ((vid.width - 320)>>1)*/, y + (vid.height-SBAR_HEIGHT), pic);
+	else
+		//Dan:
+		Draw_TransPic (x + ((vid.width - min_vid_width/*320*/)>>1), y + (vid.height-SBAR_HEIGHT), pic);
+}
+",sbar draw trans pic,quaked target splash,brief the the number of the given block,draw draw f,draw pic,sbar draw trans
+
+"void swap(void)
+{
+	double op1; 
+	double op2; 
+	
+	if (sp > 1) {
+		op1 = pop();
+		op2 = pop();
+		push(op1);
+		push(op2);
+	}
+	else
+		printf(""Error in swap: Stack contains fewer than 2 elements.\n"");
+}
+",swap swaps top 2 elements of stack,swap swaps top 2 elements of stack,swap swap top two elements elements,duplicate duplicates top element of stack,function the top of the stack,function objective pre
+
+"LIBCOX_PRIVATE libcox_value * libcoxHashmapGetNextEntry(libcox_hashmap *pMap)
+{
+	libcox_hashmap_node *pCur = pMap->pCur;
+	if( pCur == 0 ){
+		/* End of the list, return null */
+		return 0;
+	}
+	/* Advance the node cursor */
+	pMap->pCur = pCur->pPrev; /* Reverse link */
+	/* Entry value */
+	return &pCur->sValue;
+}
+",return a pointer to the node currently pointed by the node cursor,return a pointer to the node node in the given table,return the address of the next page in a list,return a pointer to the node associated pointed by the node cursor,return a pointer to the node construct the given node in the tree,return a pointer to the node in the list
+
+"void Cmd_Exec_f (void)
+{
+	char	*f;
+	int		mark;
+
+	if (Cmd_Argc () != 2)
+	{
+		Con_Printf (""exec <filename> : execute a script file\n"");
+		return;
+	}
+
+	mark = Hunk_LowMark ();
+	f = (char *)COM_LoadHunkFile (Cmd_Argv(1));
+	if (!f)
+	{
+		Con_Printf (""couldn't exec %s\n"",Cmd_Argv(1));
+		return;
+	}
+	Con_Printf (""execing %s\n"",Cmd_Argv(1));
+
+	Cbuf_InsertText (f);
+	Hunk_FreeToLowMark (mark);
+}
+",cmd exec f,sv send f,cmd exec f,cmd list f,print fahrenheit celsius table,brief the the process to the process
+
+"main()
+{
+    char word[MAXWORD];
+    struct key *p;
+
+    while (getword(word, MAXWORD) != EOF) {
+        if (isalpha(word[0])) {
+            if ((p=binsearch(word, keytab, NKEYS)) != NULL) {
+                p->count++;
+            }
+        }
+    }
+    for (p = keytab; p < keytab + NKEYS; p++) {
+        if (p->count > 0) {
+            printf(""%4d %s\n"", p->count, p->word);
+        }
+    }
+    return 0;
+}
+",count c keywords pointer version,count c keywords,find a keywords for the given key,check if a string is a valid,count c keywords,count c keywords
+
+"int getop(char s[])
+{
+	int i, c;
+
+	while ( (s[0] = c = getch() ) == ' ' || c == '\t')					;
+	s[1] = '\0';
+	
+	i = 0;
+
+	if (!isdigit(c) && c != '.')    
+		return c; /* not a number */
+/*	if (c == '-')                                   | 4 |     section to check negative values 
+		if (isdigit(c = getch()) || c == '.')   | - |    if a negative symbol detects 
+			s[++i] = c;  negative number 	| 3 |    check whether next character is a number or a  '.' if so 
+		else { 					|   |  that is negative number & that will be stored in the array to be returned
+			if (c != EOF)			|   |  else return a negative operator to compute 
+				ungetch(c);
+			return '-';
+		} */
+	
+	if (isdigit(c)) /* collect integer parts */
+		while (isdigit(s[++i] = c = getchar()))
+			;
+	if (c == '.')
+		while (isdigit(s[++i] = c = getchar()));
+			;
+	s[i] = '\0';
+	if (c != EOF)
+		ungetch(c);
+	return NUMBER;
+}
+",gettop get next character or operand,gettop get next character or operand,getop get next operator or numeric operand,getop get next operator or numeric operand,getop get next operator or numeric operand,getop get next operator or numeric operand
+
+"void add_class_member(EquiClass *cur_class, int member)
+{
+  if(cur_class->total_entry_num == MAX_EQUI_CLASS) 
+    error(""add_class_member: class buffer is full!\n"");
+  
+  cur_class->entries[cur_class->total_entry_num++] = member;
+}
+",subroutine void add class member,subroutine void add class member,add to suspend queue add a pcb to ready queue,set the current value,emit set,add a node to the list of the list
+
+"List *list_new(void)
+{
+  List *l;
+  
+  l = (List *) malloc(sizeof(List));
+
+  /* insert root element which should never be removed */
+  l->first = l->last = (Node *) malloc(sizeof(Node));
+  l->first->elm = NULL;
+  l->first->next = NULL;
+  
+  pthread_mutexattr_t attr;
+  pthread_mutexattr_init(&attr);
+  pthread_mutex_init(&l->lock, &attr); //Initialize a lock for the specified list
+  return l;
+}
+",list new return a new list structure,create a new new list,list remove remove and return the first element from list l,initialize the list of a list,list remove remove and return the first element from list l,list new return a new list structure
+
+"void FindFollowSets(struct lemon *lemp)
+{
+  int i;
+  struct config *cfp;
+  struct plink *plp;
+  int progress;
+  int change;
+
+  for(i=0; i<lemp->nstate; i++){
+    for(cfp=lemp->sorted[i]->cfp; cfp; cfp=cfp->next){
+      cfp->status = INCOMPLETE;
+    }
+  }
+  
+  do{
+    progress = 0;
+    for(i=0; i<lemp->nstate; i++){
+      for(cfp=lemp->sorted[i]->cfp; cfp; cfp=cfp->next){
+        if( cfp->status==COMPLETE ) continue;
+        for(plp=cfp->fplp; plp; plp=plp->next){
+          change = SetUnion(plp->cfp->fws,cfp->fws);
+          if( change ){
+            plp->cfp->status = INCOMPLETE;
+            progress = 1;
+          }
+        }
+        cfp->status = COMPLETE;
+      }
+    }
+  }while( progress );
+}
+",compute all followsets,compute all followsets,dirdcl parse a direct declarator,print all followsets,free all followsets,compute all followsets in the job
+
+"void MC_EmergencyCmd(FunctionalState NewState)
+{
+  if(NewState == ENABLE)
+  {
+   /* Reset the DISEST Bit in the PCR1 Register to enable the emergency stop input */
+    MC->PCR1 &= MC_DISEST_Reset;
+  }
+  else
+  {
+  /* Set the DISEST Bit in the PCR1 Register to disable the emergency stop input */
+    MC->PCR1 |= MC_DISEST_Reset;
+  }
+}
+",function name mc emergency cmd description enables or disables the mc emergency feauture,function name mc clear flag description clears the mc emergency register,function name mc emergency cmd description enable or disable the current emergency interrupt,function name mc clear on tacho capture description enables or disables the the clear on capture of tacho counter,function name mc clear cmd description description enables or disables the disables the interrupt,function name mc get description description description the the mc initialize the new value
+
+"int get_dirent_len(struct dirent* d_ent)
+{
+    int len = (int)(&(d_ent->name[0])) - (int)d_ent;
+    /* add the length of the name, rounded up to the nearest 32-bit boundary */
+    len += ((d_ent->namelen / 4) + 1) * 4;
+    return len;
+}
+",get dirent len gets the actual length of the dirent as stored in a disk block,get the op code for a given block,get the offset of the value of the current value in the network,get next operator or numberic operand,get the number of the the from the the file in the given from the given from the given the the the the the the the the the the the the the,get dirent len returns the index in index of the dirent line in a disk in the extensions list
+
+"tLinkTableNode * SearchLinkTableNode(tLinkTable *pLinkTable, int Conditon(tLinkTableNode * pNode))
+{
+    if(pLinkTable == NULL || Conditon == NULL)
+    {
+        return NULL;
+    }
+    tLinkTableNode * pNode = pLinkTable->pHead;
+    while(pNode != pLinkTable->pTail)
+    {    
+        if(Conditon(pNode) == SUCCESS)
+        {
+            return pNode;				    
+        }
+        pNode = pNode->pNext;
+    }
+    return NULL;
+}
+",search a link table node from link table int conditon,search the link table node from link table int conditon,search a link table node from link table int,find a cmd in the linklist and return the datanode pointer,search a link table node from link table int conditon,search a link table node from link table conditon
+
+"char getche(void)
+{
+    return getch_(1);
+}
+",read 1 character with echo,read 1 character with echo,read 1 character with echo,read 1 character without echo,read 1 character with echo,read 1 character with echo
+
+"	static void Decode (unsigned int *output, unsigned char *input, unsigned int len)
+		{  
+			unsigned int i, j;
+			for (i = 0, j = 0; j < len; i++, j += 4)
+				output[i] = ((unsigned int)input[j]) | (((unsigned int)input[j+1]) << 8) |
+				(((unsigned int)input[j+2]) << 16) | (((unsigned int)input[j+3]) << 24);
+		}
+",decodes input into output,decode from input into output,reverse a n in a,decodes input into output,decodes the line into the request,s i m u l a t i n g t h e t h t
+
+"void dofile(char *filename)
+{
+	FILE *f=fopen(filename,""rb"");fseek(f,0,SEEK_END);long len=ftell(f);fseek(f,0,SEEK_SET);
+	char *data=(char*)malloc(len+1);fread(data,1,len,f);fclose(f);
+	doit(data);
+	free(data);
+}
+",read a file parse render back etc,read a file parse render back back from the client,read the file parse render back etc,read a file parse render the file stream,read a file parse render back etc,read a file parse render back etc
+
+"int anycb ()
+{
+  BUFFER *bp;
+
+  bp = bheadp;
+  while (bp != NULL)
+    {
+      if ((bp->b_flag & BFTEMP) == 0 && (bp->b_flag & BFCHG) != 0)
+	return (TRUE);
+      bp = bp->b_bufp;
+    }
+  return (FALSE);
+}
+",look through the list of buffers,removes and deletes the top of the stack if present,find the item of a clone machine from all of the buttons,search the first node in the given key,free all of the memory of the list of the list of the list of the list of the list and the the and the the end of the end,look through the list of buffers
+
+"static void JX9_GLOB_BRACE_Const(jx9_value *pVal, void *pUserData)
+{
+	SXUNUSED(pUserData); /* cc warning */
+	jx9_value_int(pVal, 0x10);
+}
+",glob brace expand 0 x10,glob noescape expand 0 x01,ent noquotes expand 0 x04,ent prefix expand 0 x02,jx9 url port,glob brace expand 0 x10
+
+"VEDIS_PRIVATE const vedis_vfs * vedisExportBuiltinVfs(void)
+{
+	static const vedis_vfs sUnixvfs = {
+		""Unix"",              /* Vfs name */
+		1,                   /* Vfs structure version */
+		sizeof(unixFile),    /* szOsFile */
+		MAX_PATHNAME,        /* mxPathName */
+		unixOpen,            /* xOpen */
+		unixDelete,          /* xDelete */
+		unixAccess,          /* xAccess */
+		unixFullPathname,    /* xFullPathname */
+		0,                   /* xTmp */
+		unixSleep,           /* xSleep */
+		unixCurrentTime,     /* xCurrentTime */
+		0,                   /* xGetLastError */
+		UnixMmap,            /* xMmap */
+		UnixUnmap            /* xUnmap */
+	};
+	return &sUnixvfs;
+}
+",export the unix vfs,export the windows vfs,export the unix vfs,export the unix vfs,export the unix vfs,export the unix vfs
+
+"int dictAdd(dict *d, void *key, void *val)
+{
+    int index;
+    dictEntry *entry;
+    dictht *ht;
+
+    if (dictIsRehashing(d)) _dictRehashStep(d);
+
+    /* Get the index of the new element, or -1 if
+     * the element already exists. */
+    if ((index = _dictKeyIndex(d, key)) == -1)
+        return DICT_ERR;
+
+    /* Allocates the memory and stores key */
+    ht = dictIsRehashing(d) ? &d->ht[1] : &d->ht[0];
+    entry = zmalloc(sizeof(*entry));
+    entry->next = ht->table[index];
+    ht->table[index] = entry;
+    ht->used++;
+
+    /* Set the hash entry fields. */
+    dictSetHashKey(d, entry, key);
+    dictSetHashVal(d, entry, val);
+    return DICT_OK;
+}
+",add an element to the target hash table,add a basis configuration to the configuration list,add a to to the queue add a new to the queue,add an element to the target hash table,add an element to the hash table,add an element into the target hash table
+
+"static int add_to_list(pid_t pid)
+{
+	int idx = get_next_avail_index();
+	if (idx > -1)
+	{
+		pid_list[idx] = pid;
+	}
+	else
+	{
+		return -1;
+	}
+	return 0;
+}
+",add pid to the list of pi ds for processes running in the background,add a to the list of the list of the list in the list in the list in the list in the list,check if to a is symbol,add a new element to the end of the hash table,check if the given is a valid,add pid to the list of pi ds for processes running in the background
+
+"static int vedis_cmd_mset(vedis_context *pCtx,int argc,vedis_value **argv)
+{
+	int i,rc = VEDIS_OK;
+	if( argc <  2 ){
+		vedis_context_throw_error(pCtx,VEDIS_CTX_ERR,""Missing key/value pair"");
+		/* return false */
+		vedis_result_bool(pCtx,0);
+		return VEDIS_OK;
+	}
+	for( i = 0 ; i + 1 < argc ; i += 2 ){
+		/* Perform the store operation */
+		rc = VedisStoreValue(pCtx,argv[i],argv[i + 1]);
+		if( rc != VEDIS_OK ){
+			break;
+		}
+	}
+	/* Store result */
+	vedis_result_bool(pCtx,rc == VEDIS_OK);
+	return VEDIS_OK;
+}
+",command mset key value key value description sets the given keys to their respective values,command mset key value key value description sets the given keys to their respective values,command key key value description description the key value to the value at the value,command a key value value value description the the given to the the key,command hset key value description sets field in the hash stored at key to key,command msetnx key value key value description sets the given keys to their respective values
+
+"main()
+{
+int c,n;
+printf(""enter a string\n"");
+n=0;
+c = getchar();
+while (c != EOF) 
+{
+
+c=getchar();
+
+if(c=='\n'){
+++n;
+}
+if (c=='\t'){
+printf(""%d\n"",n);
+break;}
+
+
+}
+
+
+}
+",copy input to output 1 st version,read the input line from s file to read,print the word in the line,copy input to output,print a character to input,count input tabs 1 st version
+
+"int des_setkey_enc( des_context *ctx, const unsigned char key[DES_KEY_SIZE] )
+{
+    des_setkey( ctx->sk, key );
+
+    return( 0 );
+}
+",des key schedule,des key schedule,brief check if the number is multiple of the given level,mark the current window,des key schedule schedule,decode type
+
+"static int vm_builtin_get_resource_type(jx9_context *pCtx, int nArg, jx9_value **apArg)
+{
+	if( nArg < 1 || !jx9_value_is_resource(apArg[0]) ){
+		/* Missing/Invalid arguments, return FALSE*/
+		jx9_result_bool(pCtx, 0);
+		return SXRET_OK;
+	}
+	jx9_result_string_format(pCtx, ""resID_%#x"", apArg[0]->x.pOther);
+	return SXRET_OK;
+}
+",string get resource type,string get resource type,string base64 decode,bool get resource type,string get resource type,string get
+
+"void mpi_init( mpi *X )
+{
+    if( X == NULL )
+        return;
+
+    X->s = 1;
+    X->n = 0;
+    X->p = NULL;
+}
+",initialize one mpi,initialize one mpi,initialize a barrier structure,initialize a mpi,initialize the members of process structure,initialize one mpi
+
+"void gnuplot_resetplot(gnuplot_ctrl * h)
+{
+    int     i ;
+    if (h->ntmp) {
+        for (i=0 ; i<h->ntmp ; i++) {
+            remove(h->to_delete[i]) ;
+        }
+    }
+    h->ntmp = 0 ;
+    h->nplots = 0 ;
+    return ;
+}
+",brief resets a gnuplot session,brief resets a gnuplot session,brief the file stream,brief this api sets the accel bandwidth,brief resets a gnuplot session,brief a a gnuplot session
+
+"static void JX9_JX9_URL_HOST_Const(jx9_value *pVal, void *pUserData)
+{
+	SXUNUSED(pUserData); /* cc warning */
+	jx9_value_int(pVal, 2);
+}
+",jx9 url host,jx9 url host,jx9 url query,jx9 url fragment,jx9 url port,ent sort expand 0 x01
+
+"int getLine(char s[], int lim)
+{
+    int c, i;
+
+    for (i=0; i < lim-1 && (c=getchar())!=EOF && c!='\n'; ++i)
+        s[i] = c;
+    if (c == '\n') {
+        s[i] = c;
+        ++i;
+    }
+    s[i] = '\0';
+    return i;
+}
+",getline read a line into s return length,getline read a line into s return length,getline read a line into s return length,getline read a line into s return length,get the read line into s return length,getline read a line into s return length
+
+"char* parameter_read( int argc, char* argv[], char* parameter )
+{
+    // Set return value to null
+    char* return_value = NULL;
+    // Loop through all parameters
+    int i;
+    for ( i = 1; i < argc; i++ ) {
+        // Check if this is our parameter
+        if ( !stricmp(argv[ i ], parameter ) && argc > i + 1 && strncmp( argv[ i + 1], ""/"", 1 ) ) {
+            // Allocate memory
+            int len = strlen( argv[ i + 1 ] );
+            return_value = (char*) malloc( len + 1 );
+            return_value[ len ] = '\0';
+            // Copy parameter's argument
+            strcpy( return_value, argv[ i + 1 ] );
+            // We found parameter's argument let's exit loop ie Break
+            break;
+        }
+    }
+    return ( return_value );
+}
+",reads parameter and returns null if no parameter arguments exist,get the literal and length of a deflated block with fixed tree as per the deflate specification,read a read from the file in the given file in the given in the given in the given from the given file,parse the port number from a file and returns it to a string,brief the the given a string,reads parameter and returns null if no parameter arguments exist
+
+"int sr_verify_routing_table(struct sr_instance* sr)
+{
+    struct sr_rt* rt_walker = 0;
+    struct sr_if* if_walker = 0;
+    int ret = 0;
+
+    /* -- REQUIRES --*/
+    assert(sr);
+
+    if( (sr->if_list == 0) || (sr->routing_table == 0))
+    {
+        return 999; /* doh! */
+    }
+
+    rt_walker = sr->routing_table;
+
+    while(rt_walker)
+    {
+        /* -- check to see if interface exists -- */
+        if_walker = sr->if_list;
+        while(if_walker)
+        {
+            if( strncmp(if_walker->name,rt_walker->interface,sr_IFACE_NAMELEN)
+                    == 0)
+            { break; }
+            if_walker = if_walker->next;
+        }
+        if(if_walker == 0)
+        { ret++; } /* -- interface not found! -- */
+
+        rt_walker = rt_walker->next;
+    } /* -- while -- */
+
+    return ret;
+} /* -- sr_verify_routing_table -- */
+",method sr verify routing table,sr transmission verify table,method sr sat ether addr,find the greatest function,function sort,brief the the given a block
+
+"static void JX9_ENT_QUOTES_Const(jx9_value *pVal, void *pUserData)
+{
+	SXUNUSED(pUserData); /* cc warning */
+	jx9_value_int(pVal, 0x02);
+}
+",ent quotes expand 0 x02,ent noquotes expand 0 x04,ent sort expand 0 x01,jx9 url port,ent disallowed expand 0 x02,ent quotes expand 0 x02
+
+"extern int readpcv(const char *file, pcvs_t *pcvs)
+{
+    pcv_t *pcv;
+    char *ext;
+    int i,stat;
+    
+    trace(3,""readpcv: file=%s\n"",file);
+    
+    if (!(ext=strrchr(file,'.'))) ext="""";
+    
+    if (!strcmp(ext,"".atx"")||!strcmp(ext,"".ATX"")) {
+        stat=readantex(file,pcvs);
+    }
+    else {
+        stat=readngspcv(file,pcvs);
+    }
+    for (i=0;i<pcvs->n;i++) {
+        pcv=pcvs->pcv+i;
+        trace(4,""sat=%2d type=%20s code=%s off=%8.4f %8.4f %8.4f  %8.4f %8.4f %8.4f\n"",
+              pcv->sat,pcv->type,pcv->code,pcv->off[0][0],pcv->off[0][1],
+              pcv->off[0][2],pcv->off[1][0],pcv->off[1][1],pcv->off[1][2]);
+    }
+    return stat;
+}
+",read antenna parameters read antenna parameters args char file i antenna parameter file,time string for ver,read antenna parameters read antenna parameters args antenna parameters args t file,read antenna antenna int file int file int int int int int int int int int int int int int int int int int int int int int int int int int,function name mimeh parse messageid returns type int parameter list 1,return the
+
